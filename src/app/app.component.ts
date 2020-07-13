@@ -173,6 +173,11 @@ export class AppComponent implements OnInit {
 
   purchaseItems() {
     const prods = this.dataSource.data;
+
+    this.makePurchase(prods);
+  }
+
+  makePurchase(prods: Product[]) {
     const items = new Array<ReceiptItem>();
     this.total = 0;
     this.taxes = 0;
@@ -197,5 +202,7 @@ export class AppComponent implements OnInit {
     });
 
     this.receipt = of(items);
+
+    return this.receipt;
   }
 }
